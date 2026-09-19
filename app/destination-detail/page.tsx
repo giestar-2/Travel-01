@@ -48,6 +48,7 @@ const galleryPreview = [
   { src: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=600&auto=format&fit=crop", alt: "Santorini view" },
   { src: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=600&auto=format&fit=crop", alt: "Santorini domes" },
   { src: "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?q=80&w=600&auto=format&fit=crop", alt: "Santorini street" },
+  { src: "https://images.unsplash.com/photo-1631261473500-440bdd160619?q=80&w=600&auto=format&fit=crop", alt: "Aerial view of Santorini's Ammoudi Bay" },
 ];
 
 const included = ["Accommodation included", "Daily breakfast", "Local expert guide", "Airport transfers"];
@@ -158,12 +159,12 @@ export default function DestinationDetailPage() {
             {/* Gallery preview */}
             <div>
               <h2 className="text-2xl font-bold text-brand-dark mb-4">Gallery</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {galleryPreview.map((image) => (
-                  <TravelImage sizes="(min-width: 1024px) 240px, 33vw"
+                  <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 350px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     key={image.src}
                     src={image.src}
-                    className="rounded-2xl h-40 w-full object-cover"
+                    className="aspect-[3/2] w-full rounded-2xl object-cover"
                     alt={image.alt}
                   />
                 ))}

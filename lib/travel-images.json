@@ -1082,6 +1082,42 @@
           "webp": "/images/travel/photo-1570077188670-e3a8d69ac5ff-original-600-540ee57957.webp"
         }
       ]
+    },
+    "landscape": {
+      "width": 600,
+      "height": 400,
+      "images": [
+        {
+          "width": 96,
+          "avif": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-96-45272a92a6.avif",
+          "webp": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-96-53e1e46282.webp"
+        },
+        {
+          "width": 160,
+          "avif": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-160-40cb262b85.avif",
+          "webp": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-160-8482156d9c.webp"
+        },
+        {
+          "width": 256,
+          "avif": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-256-6e1ea774bc.avif",
+          "webp": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-256-ba2d4872d4.webp"
+        },
+        {
+          "width": 384,
+          "avif": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-384-6f5bb7b79b.avif",
+          "webp": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-384-757cf42997.webp"
+        },
+        {
+          "width": 512,
+          "avif": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-512-020c073448.avif",
+          "webp": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-512-74bdf33933.webp"
+        },
+        {
+          "width": 600,
+          "avif": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-600-ff36c95c22.avif",
+          "webp": "/images/travel/photo-1570077188670-e3a8d69ac5ff-landscape-600-07a69a60dd.webp"
+        }
+      ]
     }
   },
   "photo-1613395877344-13d4a8e0d49e": {
@@ -1120,6 +1156,42 @@
           "webp": "/images/travel/photo-1613395877344-13d4a8e0d49e-original-600-55748c685b.webp"
         }
       ]
+    },
+    "landscape": {
+      "width": 600,
+      "height": 400,
+      "images": [
+        {
+          "width": 96,
+          "avif": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-96-e2ade671ef.avif",
+          "webp": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-96-b736be14cb.webp"
+        },
+        {
+          "width": 160,
+          "avif": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-160-a665c9236e.avif",
+          "webp": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-160-8942b03a6c.webp"
+        },
+        {
+          "width": 256,
+          "avif": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-256-3556e3197e.avif",
+          "webp": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-256-418db1a534.webp"
+        },
+        {
+          "width": 384,
+          "avif": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-384-a292732706.avif",
+          "webp": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-384-e4e519ec92.webp"
+        },
+        {
+          "width": 512,
+          "avif": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-512-d4751beb30.avif",
+          "webp": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-512-90d0504bfc.webp"
+        },
+        {
+          "width": 600,
+          "avif": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-600-8715241904.avif",
+          "webp": "/images/travel/photo-1613395877344-13d4a8e0d49e-landscape-600-98952c1714.webp"
+        }
+      ]
     }
   },
   "photo-1601581875309-fafbf2d3ed3a": {
@@ -1156,6 +1228,116 @@
           "width": 600,
           "avif": "/images/travel/photo-1601581875309-fafbf2d3ed3a-original-600-f4c39d8be7.avif",
           "webp": "/images/travel/photo-1601581875309-fafbf2d3ed3a-original-600-9285099533.webp"
+        }
+      ]
+    },
+    "landscape": {
+      "width": 600,
+      "height": 400,
+      "images": [
+        {
+          "width": 96,
+          "avif": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-96-995fa1ae5d.avif",
+          "webp": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-96-3263cfc60a.webp"
+        },
+        {
+          "width": 160,
+          "avif": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-160-44da6bb6c9.avif",
+          "webp": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-160-833974ce80.webp"
+        },
+        {
+          "width": 256,
+          "avif": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-256-dbee3ad27b.avif",
+          "webp": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-256-e1ca68f586.webp"
+        },
+        {
+          "width": 384,
+          "avif": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-384-4489337e3d.avif",
+          "webp": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-384-fabf8e6fd1.webp"
+        },
+        {
+          "width": 512,
+          "avif": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-512-a182475a4f.avif",
+          "webp": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-512-133c9ee992.webp"
+        },
+        {
+          "width": 600,
+          "avif": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-600-a03846fd10.avif",
+          "webp": "/images/travel/photo-1601581875309-fafbf2d3ed3a-landscape-600-9b9bc590d7.webp"
+        }
+      ]
+    }
+  },
+  "photo-1631261473500-440bdd160619": {
+    "original": {
+      "width": 600,
+      "height": 450,
+      "images": [
+        {
+          "width": 96,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-original-96-3efb8197e8.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-original-96-0f025b4da9.webp"
+        },
+        {
+          "width": 160,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-original-160-0c2a9994ea.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-original-160-2f3a0bdfb0.webp"
+        },
+        {
+          "width": 256,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-original-256-77b30c0733.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-original-256-b405fd1c58.webp"
+        },
+        {
+          "width": 384,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-original-384-477f4a64dd.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-original-384-91eaa21b23.webp"
+        },
+        {
+          "width": 512,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-original-512-b046e24913.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-original-512-74ab1ba08b.webp"
+        },
+        {
+          "width": 600,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-original-600-14b28196d1.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-original-600-24e618e57e.webp"
+        }
+      ]
+    },
+    "landscape": {
+      "width": 600,
+      "height": 400,
+      "images": [
+        {
+          "width": 96,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-landscape-96-c3fbb05d40.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-landscape-96-dcd9c52525.webp"
+        },
+        {
+          "width": 160,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-landscape-160-ac2d5c4d85.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-landscape-160-4b83f9912a.webp"
+        },
+        {
+          "width": 256,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-landscape-256-a44b1e7d2b.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-landscape-256-3a711d7cf1.webp"
+        },
+        {
+          "width": 384,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-landscape-384-034804b8cd.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-landscape-384-2e87241760.webp"
+        },
+        {
+          "width": 512,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-landscape-512-156044c918.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-landscape-512-84fd6ca6ca.webp"
+        },
+        {
+          "width": 600,
+          "avif": "/images/travel/photo-1631261473500-440bdd160619-landscape-600-1cfb05484e.avif",
+          "webp": "/images/travel/photo-1631261473500-440bdd160619-landscape-600-1cfb9d73b4.webp"
         }
       ]
     }

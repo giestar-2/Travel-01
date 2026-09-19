@@ -21,10 +21,22 @@ const landscape = new Set([
   'photo-1502602898657-3e91760cbb34', 'photo-1507525428034-b723cf961d3e',
   'photo-1493246507139-91e8fad9978e', 'photo-1516483638261-f4dbaf036963',
   'photo-1476514525535-07fb3b4ae5f1', 'photo-1501785888041-af3ef285b470',
+  'photo-1570077188670-e3a8d69ac5ff', 'photo-1613395877344-13d4a8e0d49e',
+  'photo-1601581875309-fafbf2d3ed3a',
+  'photo-1631261473500-440bdd160619',
 ]);
+const requested = new Set(process.argv.slice(2));
+if (requested.size) {
+  for (const id of sources.keys()) {
+    if (!requested.has(id)) sources.delete(id);
+  }
+  for (const id of requested) {
+    if (!sources.has(id)) throw Error(`Photo not found in app/components: ${id}`);
+  }
+}
 const output = 'public/images/travel';
 await mkdir(output, { recursive: true });
-const manifest = {};
+const manifest = JSON.parse(await readFile('lib/travel-images.json', 'utf8'));
 let bytes = 0;
 for (const [id, maxWidth] of sources) {
   const response = await fetch(`https://images.unsplash.com/${id}?w=${maxWidth}&q=90&fm=webp&fit=max`);
