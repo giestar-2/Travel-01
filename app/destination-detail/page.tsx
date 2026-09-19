@@ -159,14 +159,17 @@ export default function DestinationDetailPage() {
             {/* Gallery preview */}
             <div>
               <h2 className="text-2xl font-bold text-brand-dark mb-4">Gallery</h2>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="destination-gallery-grid grid grid-cols-2 gap-3">
                 {galleryPreview.map((image) => (
-                  <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 350px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    key={image.src}
-                    src={image.src}
-                    className="aspect-[3/2] w-full rounded-2xl object-cover"
-                    alt={image.alt}
-                  />
+                  <div key={image.src} className="min-w-0 overflow-hidden rounded-2xl">
+                    <TravelImage
+                      aspectRatio={1.5}
+                      sizes="(min-width: 1280px) 350px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      src={image.src}
+                      className="block aspect-[3/2] w-full object-cover"
+                      alt={image.alt}
+                    />
+                  </div>
                 ))}
               </div>
             </div>

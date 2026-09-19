@@ -79,6 +79,7 @@ body {
   transform: translateY(-160%);
 }
 .skip-link:focus { transform: translateY(0); }
+.destination-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .nav-active { color: #b83b0a; }
 .nav-transparent .nav-active { color: #fdba74; }
 :focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
