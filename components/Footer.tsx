@@ -1,3 +1,4 @@
+import TravelImage from "@/components/TravelImage";
 import Link from "next/link";
 
 export type FooterVariant = "home" | "destinations" | "destinationDetail" | "site";
@@ -14,7 +15,7 @@ function HomeFooter() {
   return (
     <footer className="relative overflow-hidden bg-slate-900 text-white p-8 md:p-16 text-center shadow-2xl">
       <div className="absolute inset-0 z-0">
-        <img
+        <TravelImage sizes="100vw"
           src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1974&auto=format&fit=crop"
           alt="Traveler at Sunset"
           className="w-full h-full object-cover opacity-20"

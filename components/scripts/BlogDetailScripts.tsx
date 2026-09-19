@@ -29,17 +29,29 @@ export default function BlogDetailScripts({ children }: { children: ReactNode })
 
     // Reading progress bar
     const progressBar = document.getElementById("progressBar");
-    const handleScroll = () => {
+    let frame = 0;
+    const updateProgress = () => {
+      frame = 0;
       const h = document.documentElement;
-      const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      const distance = h.scrollHeight - h.clientHeight;
+      const scrolled = distance > 0 ? Math.min(1, Math.max(0, h.scrollTop / distance)) : 0;
       if (progressBar) progressBar.style.transform = `scaleX(${scrolled})`;
     };
+    const handleScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateProgress);
+    };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
+    updateProgress();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+    const resizeObserver = new ResizeObserver(handleScroll);
+    resizeObserver.observe(document.body);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      resizeObserver.disconnect();
+      window.cancelAnimationFrame(frame);
       ctx.revert();
     };
   }, []);

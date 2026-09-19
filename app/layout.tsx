@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="id" className="scroll-smooth">
       <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
         {/* Google Fonts: Plus Jakarta Sans */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

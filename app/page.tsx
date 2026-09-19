@@ -1,3 +1,4 @@
+import TravelImage from "@/components/TravelImage";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,7 +17,7 @@ export default function HomePage() {
       <header className="relative overflow-hidden min-h-screen flex flex-col justify-between p-6 md:p-12 bg-slate-900 text-white shadow-2xl hero-section">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img
+          <TravelImage priority sizes="100vw"
             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
             alt="Scenic Mountain Landscape"
             className="w-full h-full object-cover object-center hero-bg scale-105 opacity-60"
@@ -108,7 +109,7 @@ export default function HomePage() {
         <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 pb-4 lg:grid lg:grid-cols-12 lg:gap-6 lg:overflow-visible lg:pb-0">
           {/* Large Card Left */}
           <div className="min-w-[85%] snap-start lg:min-w-0 lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[420px] md:min-h-[500px] group cursor-pointer shadow-lg gs-card">
-            <img
+            <TravelImage sizes="(min-width: 1280px) 680px, (min-width: 1024px) 58vw, 85vw"
               src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1000&auto=format&fit=crop"
               alt="Santorini Island Escape"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
@@ -137,7 +138,7 @@ export default function HomePage() {
           <div className="contents lg:col-span-5 lg:flex lg:flex-col lg:gap-6">
             {/* Top Card */}
             <div className="min-w-[85%] snap-start lg:min-w-0 relative rounded-3xl overflow-hidden flex-1 min-h-[420px] md:min-h-[500px] lg:min-h-[240px] group cursor-pointer shadow-lg gs-card">
-              <img
+              <TravelImage sizes="(min-width: 1280px) 680px, (min-width: 1024px) 58vw, 85vw"
                 src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800&auto=format&fit=crop"
                 alt="Swiss Alps Adventure"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
@@ -166,7 +167,7 @@ export default function HomePage() {
 
             {/* Bottom Card */}
             <div className="min-w-[85%] snap-start lg:min-w-0 relative rounded-3xl overflow-hidden flex-1 min-h-[420px] md:min-h-[500px] lg:min-h-[240px] group cursor-pointer shadow-lg gs-card">
-              <img
+              <TravelImage sizes="(min-width: 1280px) 680px, (min-width: 1024px) 58vw, 85vw"
                 src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800&auto=format&fit=crop"
                 alt="Bali Tropical Getaway"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
@@ -223,7 +224,7 @@ export default function HomePage() {
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[3] min-w-0 min-h-0"
                 data-panel=""
               >
-                <img
+                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
                   src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop"
                   alt="Paris City Tour"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -251,7 +252,7 @@ export default function HomePage() {
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[1] min-w-0 min-h-0"
                 data-panel=""
               >
-                <img
+                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
                   src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop"
                   alt="Maui Island Hopping"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -279,7 +280,7 @@ export default function HomePage() {
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[1] min-w-0 min-h-0"
                 data-panel=""
               >
-                <img
+                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
                   src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1000&auto=format&fit=crop"
                   alt="Norway Fjords Expedition"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -307,7 +308,7 @@ export default function HomePage() {
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[1] min-w-0 min-h-0"
                 data-panel=""
               >
-                <img
+                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
                   src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1000&auto=format&fit=crop"
                   alt="Lake Como Discovery"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -372,14 +373,14 @@ export default function HomePage() {
           {/* Interactive Mini Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-16 text-left items-stretch">
             <div className="rounded-2xl overflow-hidden shadow-md h-48 md:h-auto">
-              <img
+              <TravelImage
                 src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop"
                 className="w-full h-full object-cover"
                 alt=""
               />
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md h-48 md:h-auto">
-              <img
+              <TravelImage
                 src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop"
                 className="w-full h-full object-cover"
                 alt=""
@@ -428,7 +429,7 @@ export default function HomePage() {
               guide was amazing and every destination left us breathless. Truly unforgettable."
             </p>
             <div className="flex items-center space-x-4">
-              <img
+              <TravelImage width={48} height={48} sizes="48px"
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
                 className="w-12 h-12 rounded-full object-cover"
                 alt=""

@@ -1,3 +1,4 @@
+import TravelImage from "@/components/TravelImage";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -68,7 +69,7 @@ export default function DestinationsPage() {
       {/* PAGE HEADER */}
       <header className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <TravelImage priority sizes="100vw"
             src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1974&auto=format&fit=crop"
             alt="Destinations"
             className="w-full h-full object-cover opacity-40"
@@ -116,7 +117,7 @@ export default function DestinationsPage() {
               className="gs-card group block rounded-3xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow"
             >
               <div className="relative h-64 overflow-hidden">
-                <img
+                <TravelImage
                   src={destination.image}
                   alt={destination.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

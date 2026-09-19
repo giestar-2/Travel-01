@@ -1,3 +1,4 @@
+import TravelImage from "@/components/TravelImage";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -79,7 +80,7 @@ export default function BlogPage() {
           className="group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 gs-fade"
         >
           <div className="relative h-64 lg:h-full min-h-[320px] overflow-hidden">
-            <img
+            <TravelImage priority sizes="(min-width: 1280px) 592px, (min-width: 1024px) 50vw, 100vw"
               src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               alt="Featured"
@@ -119,7 +120,7 @@ export default function BlogPage() {
           {posts.map((post) => (
             <Link key={post.title} href="/blog-detail" className="group gs-fade">
               <div className="rounded-2xl overflow-hidden h-56 mb-5 shadow-md relative">
-                <img
+                <TravelImage
                   src={post.image}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt=""

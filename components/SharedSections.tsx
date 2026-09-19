@@ -1,5 +1,8 @@
 "use client";
 
+import TravelImage from "@/components/TravelImage";
+
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
@@ -169,7 +172,7 @@ export default function SharedSections() {
           </div>
           <div className="lg:col-span-5 gs-fade">
             <div className="rounded-3xl overflow-hidden shadow-xl h-[450px] relative">
-              <img
+              <TravelImage sizes="(min-width: 1280px) 480px, (min-width: 1024px) 42vw, 100vw"
                 src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?q=80&w=800&auto=format&fit=crop"
                 alt="Traveler enjoying the view"
                 className="w-full h-full object-cover"

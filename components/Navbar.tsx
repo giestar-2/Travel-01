@@ -34,8 +34,12 @@ export default function Navbar() {
     if (!navbar || !navInner || !navBrand) return;
 
     // Navbar scroll behavior (background + brand appear) - ported 1:1 from index.html
+    let previousScrolled: boolean | undefined;
     const handleNavScroll = () => {
-      if (window.scrollY > 40) {
+      const scrolled = window.scrollY > 40;
+      if (scrolled === previousScrolled) return;
+      previousScrolled = scrolled;
+      if (scrolled) {
         navbar.classList.remove("text-white");
         navbar.classList.add("bg-white/95", "backdrop-blur-md", "shadow-md", "text-brand-dark");
         navInner.classList.remove("py-5");
@@ -51,7 +55,7 @@ export default function Navbar() {
     };
 
     handleNavScroll();
-    window.addEventListener("scroll", handleNavScroll);
+    window.addEventListener("scroll", handleNavScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleNavScroll);
   }, [transparent, pathname]);
 

@@ -1,3 +1,4 @@
+import TravelImage from "@/components/TravelImage";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -73,7 +74,7 @@ export default function DestinationDetailPage() {
         {/* HERO IMAGE */}
         <section className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="relative rounded-3xl overflow-hidden h-[380px] md:h-[520px] shadow-xl">
-            <img
+            <TravelImage priority sizes="(min-width: 1280px) 1184px, 100vw"
               src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1600&auto=format&fit=crop"
               alt="Santorini Island Escape"
               className="w-full h-full object-cover"
@@ -159,7 +160,7 @@ export default function DestinationDetailPage() {
               <h2 className="text-2xl font-bold text-brand-dark mb-4">Gallery</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {galleryPreview.map((image) => (
-                  <img
+                  <TravelImage sizes="(min-width: 1024px) 240px, 33vw"
                     key={image.src}
                     src={image.src}
                     className="rounded-2xl h-40 w-full object-cover"

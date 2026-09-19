@@ -1,3 +1,4 @@
+import TravelImage from "@/components/TravelImage";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -60,7 +61,7 @@ export default function BlogDetailPage() {
           10 Hidden Gems in Southeast Asia You Need to Visit in 2026
         </h1>
         <div className="flex items-center gap-4 pb-8 border-b border-slate-200">
-          <img
+          <TravelImage width={48} height={48} sizes="48px"
             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
             className="w-12 h-12 rounded-full object-cover"
             alt="Author"
@@ -94,7 +95,7 @@ export default function BlogDetailPage() {
 
       {/* HERO IMAGE */}
       <div className="max-w-4xl mx-auto px-6 my-10">
-        <img
+        <TravelImage priority sizes="(min-width: 896px) 848px, calc(100vw - 48px)"
           src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1400&auto=format&fit=crop"
           className="w-full h-64 md:h-[460px] object-cover rounded-3xl shadow-lg"
           alt="Southeast Asia"
@@ -156,7 +157,7 @@ export default function BlogDetailPage() {
       {/* AUTHOR BOX */}
       <section className="max-w-3xl mx-auto px-6 pb-16">
         <div className="bg-white border border-slate-100 rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-6 shadow-sm">
-          <img
+          <TravelImage sizes="(min-width: 768px) 720px, 100vw"
             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
             className="w-20 h-20 rounded-full object-cover"
             alt="Author"
@@ -179,7 +180,7 @@ export default function BlogDetailPage() {
           {relatedPosts.map((post) => (
             <Link key={post.title} href="/blog-detail" className="group gs-fade">
               <div className="rounded-2xl overflow-hidden h-52 mb-4 shadow-md">
-                <img
+                <TravelImage
                   src={post.image}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   alt=""

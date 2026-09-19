@@ -1,3 +1,4 @@
+import TravelImage from "@/components/TravelImage";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -71,7 +72,7 @@ export default function GalleryPage() {
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]" id="galleryGrid">
           {photos.map((photo) => (
             <div key={photo.src} className="gallery-item mb-4 break-inside-avoid" data-cat={photo.category}>
-              <img
+              <TravelImage loading="eager" sizes="(min-width: 1280px) 284px, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                 src={photo.src}
                 className="w-full rounded-2xl shadow-md hover:scale-[1.02] transition-transform cursor-pointer gallery-img"
                 alt={photo.alt}
