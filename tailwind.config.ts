@@ -6,14 +6,14 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          orange: "#F87114",
+          orange: "#B83B0A",
           dark: "#0F172A",
-          gray: "#64748B",
+          gray: "#526176",
           light: "#F8FAFC",
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', "sans-serif"],
+        sans: ["var(--font-jakarta)", "Arial", "sans-serif"],
       },
     },
   },

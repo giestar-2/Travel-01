@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
- * Global styles taken over verbatim from the <style> blocks of the original
- * static pages, so the rendering stays pixel-identical.
- */
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: var(--font-jakarta), Arial, sans-serif;
   background-color: #fafafa;
   color: #0f172a;
   overflow-x: hidden;
@@ -70,4 +66,34 @@ body {
 #progressBar {
   transform-origin: left;
   transform: scaleX(0);
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 12px 20px;
+  color: white;
+  background: #0f172a;
+  transform: translateY(-160%);
+}
+.skip-link:focus { transform: translateY(0); }
+.nav-active { color: #b83b0a; }
+.nav-transparent .nav-active { color: #fdba74; }
+:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
+summary::-webkit-details-marker { display: none; }
+
+/* Reserve the desktop pin distance in HTML instead of injecting a GSAP spacer. */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .hero-stage { height: 200svh; }
+  .hero-section { position: sticky; top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

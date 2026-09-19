@@ -40,7 +40,7 @@ export default function ContactPage() {
                 <i data-lucide="mail" className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-brand-dark mb-1">Email Us</h3>
+                <h2 className="font-bold text-brand-dark mb-1">Email Us</h2>
                 <p className="text-sm text-brand-gray">hello@wanderly.com</p>
                 <p className="text-sm text-brand-gray">support@wanderly.com</p>
               </div>
@@ -50,7 +50,7 @@ export default function ContactPage() {
                 <i data-lucide="phone" className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-brand-dark mb-1">Call Us</h3>
+                <h2 className="font-bold text-brand-dark mb-1">Call Us</h2>
                 <p className="text-sm text-brand-gray">+1 (212) 555-0192</p>
                 <p className="text-sm text-brand-gray">Mon–Fri, 9am–6pm EST</p>
               </div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                 <i data-lucide="map-pin" className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-brand-dark mb-1">Visit Us</h3>
+                <h2 className="font-bold text-brand-dark mb-1">Visit Us</h2>
                 <p className="text-sm text-brand-gray">
                   45 Greenlawn Avenue,
                   <br />
@@ -69,11 +69,11 @@ export default function ContactPage() {
               </div>
             </div>
             <div className="bg-slate-900 text-white rounded-2xl p-6 shadow-lg">
-              <h3 className="font-bold mb-3">Follow Our Journey</h3>
+              <h2 className="font-bold mb-3">Follow Our Journey</h2>
               <div className="flex gap-3">
                 {socials.map((social) => (
                   <a
-                    key={social}
+                    key={social} aria-label={social}
                     href="#"
                     className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center transition-colors"
                   >
@@ -91,18 +91,18 @@ export default function ContactPage() {
               <form id="contactForm" className="space-y-5" noValidate>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-brand-dark mb-2">Full Name</label>
-                    <input type="text" name="name" required placeholder="Jane Doe" className={inputClass} />
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-brand-dark mb-2">Full Name</label>
+                    <input type="text" id="contact-name" name="name" required placeholder="Jane Doe" className={inputClass} />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-brand-dark mb-2">Email Address</label>
-                    <input type="email" name="email" required placeholder="jane@example.com" className={inputClass} />
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-brand-dark mb-2">Email Address</label>
+                    <input type="email" id="contact-email" name="email" required placeholder="jane@example.com" className={inputClass} />
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-brand-dark mb-2">Destination of Interest</label>
-                    <select name="destination" className={`${inputClass} bg-white`}>
+                    <label htmlFor="contact-destination" className="block text-sm font-medium text-brand-dark mb-2">Destination of Interest</label>
+                    <select id="contact-destination" name="destination" className={`${inputClass} bg-white`}>
                       <option value="">Select a destination</option>
                       <option>Santorini, Greece</option>
                       <option>Swiss Alps, Switzerland</option>
@@ -112,14 +112,14 @@ export default function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-brand-dark mb-2">Travel Date</label>
-                    <input type="date" name="date" className={inputClass} />
+                    <label htmlFor="contact-date" className="block text-sm font-medium text-brand-dark mb-2">Travel Date</label>
+                    <input type="date" id="contact-date" name="date" className={inputClass} />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-brand-dark mb-2">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-brand-dark mb-2">Message</label>
                   <textarea
-                    name="message"
+                    id="contact-message" name="message"
                     rows={5}
                     required
                     placeholder="Tell us about your dream trip..."
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 <div className="flex flex-col sm:flex-row items-center gap-4">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto bg-brand-orange hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30 inline-flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto bg-brand-orange hover:bg-orange-800 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30 inline-flex items-center justify-center gap-2"
                   >
                     <span>Send Message</span>
                     <i data-lucide="send" className="w-4 h-4" />

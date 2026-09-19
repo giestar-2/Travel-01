@@ -72,7 +72,7 @@ export default function GalleryPage() {
         <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]" id="galleryGrid">
           {photos.map((photo) => (
             <div key={photo.src} className="gallery-item mb-4 break-inside-avoid" data-cat={photo.category}>
-              <TravelImage loading="eager" sizes="(min-width: 1280px) 284px, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+              <TravelImage sizes="(min-width: 1280px) 284px, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                 src={photo.src}
                 className="w-full rounded-2xl shadow-md hover:scale-[1.02] transition-transform cursor-pointer gallery-img"
                 alt={photo.alt}
@@ -89,6 +89,7 @@ export default function GalleryPage() {
       >
         <button
           id="lightboxClose"
+          aria-label="Close image preview"
           className="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
         >
           <i data-lucide="x" className="w-6 h-6" />

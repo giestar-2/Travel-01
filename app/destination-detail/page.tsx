@@ -55,7 +55,7 @@ const included = ["Accommodation included", "Daily breakfast", "Local expert gui
 export default function DestinationDetailPage() {
   return (
     <>
-      <main className="pt-24 md:pt-28">
+      <div className="pt-24 md:pt-28">
         {/* BREADCRUMB */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-4">
           <nav className="flex items-center flex-wrap gap-2 text-sm text-brand-gray">
@@ -188,15 +188,15 @@ export default function DestinationDetailPage() {
 
               <div className="space-y-3">
                 <div>
-                  <label className="text-xs font-semibold text-brand-gray block mb-1">Departure Date</label>
-                  <input
+                  <label htmlFor="booking-date" className="text-xs font-semibold text-brand-gray block mb-1">Departure Date</label>
+                  <input id="booking-date"
                     type="date"
                     className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-brand-orange"
                   />
                 </div>
                 <div>
-                  <label className="text-xs font-semibold text-brand-gray block mb-1">Travelers</label>
-                  <select className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-brand-orange">
+                  <label htmlFor="booking-guests" className="text-xs font-semibold text-brand-gray block mb-1">Travelers</label>
+                  <select id="booking-guests" className="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-brand-orange">
                     <option>1 Person</option>
                     <option>2 People</option>
                     <option>3 People</option>
@@ -205,7 +205,7 @@ export default function DestinationDetailPage() {
                 </div>
               </div>
 
-              <button className="w-full bg-brand-orange hover:bg-orange-600 text-white font-semibold py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30">
+              <button className="w-full bg-brand-orange hover:bg-orange-800 text-white font-semibold py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30">
                 Book This Trip
               </button>
               <p className="text-xs text-center text-brand-gray">Free cancellation up to 14 days before departure</p>
@@ -220,7 +220,7 @@ export default function DestinationDetailPage() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
       {/* SHARED SECTIONS (Features + FAQ) */}
       <SharedSections />

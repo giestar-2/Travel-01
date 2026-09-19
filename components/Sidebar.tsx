@@ -14,7 +14,7 @@ type Cta = {
 };
 
 const ctaBase =
-  "mt-auto bg-brand-orange hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all shadow-lg";
+  "mt-auto bg-brand-orange hover:bg-orange-800 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all shadow-lg";
 
 /*
  * Each original page had its own mobile menu CTA: index.html and
@@ -45,11 +45,17 @@ export default function Sidebar() {
     if (!sidebar || !sidebarOverlay) return;
 
     const openSidebar = () => {
+      sidebar.inert = false;
+      document.getElementById("menuToggle")?.setAttribute("aria-expanded", "true");
       sidebar.classList.remove("translate-x-full");
       sidebarOverlay.classList.remove("opacity-0", "pointer-events-none");
       document.body.style.overflow = "hidden";
+      sidebar.querySelector<HTMLButtonElement>("#sidebarClose")?.focus();
     };
     const closeSidebar = () => {
+      if (sidebar.contains(document.activeElement)) document.getElementById("menuToggle")?.focus();
+      sidebar.inert = true;
+      document.getElementById("menuToggle")?.setAttribute("aria-expanded", "false");
       sidebar.classList.add("translate-x-full");
       sidebarOverlay.classList.add("opacity-0", "pointer-events-none");
       document.body.style.overflow = "";
@@ -57,6 +63,18 @@ export default function Sidebar() {
 
     // Always closed after a page change, just like a full page load.
     closeSidebar();
+
+    const handleKey = (event: KeyboardEvent) => {
+      if (sidebar.inert) return;
+      if (event.key === "Escape") closeSidebar();
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(sidebar.querySelectorAll<HTMLElement>("a[href], button"));
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    };
+    document.addEventListener("keydown", handleKey);
 
     // The hamburger lives in the Navbar, so the click is delegated from the
     // document: that keeps the binding alive when React swaps navbar variants.
@@ -73,6 +91,7 @@ export default function Sidebar() {
     document.addEventListener("click", handleDocumentClick);
 
     return () => {
+      document.removeEventListener("keydown", handleKey);
       document.removeEventListener("click", handleDocumentClick);
       sidebarClose?.removeEventListener("click", closeSidebar);
       sidebarOverlay.removeEventListener("click", closeSidebar);
@@ -91,6 +110,8 @@ export default function Sidebar() {
       <aside
         ref={sidebarRef}
         id="sidebar"
+        inert
+        aria-label="Mobile navigation"
         className="fixed top-0 right-0 bottom-0 w-72 max-w-[80%] bg-white text-brand-dark z-[70] translate-x-full transition-transform duration-300 ease-out shadow-2xl p-6 flex flex-col"
       >
         <div className="flex items-center justify-between mb-10">

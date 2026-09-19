@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import localFont from "next/font/local";
 
 import LucideIcons from "@/components/LucideIcons";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 
 import "./globals.css";
+
+const jakarta = localFont({
+  src: "./fonts/plus-jakarta-sans-latin.woff2",
+  weight: "400 800",
+  display: "swap",
+  variable: "--font-jakarta",
+  fallback: ["Arial"],
+});
 
 export const metadata: Metadata = {
   title: "Wanderly - Explore the World, One Journey at a Time",
@@ -15,21 +24,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="id" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        {/* Google Fonts: Plus Jakarta Sans */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`${jakarta.variable} scroll-smooth`}>
       <body className="selection:bg-brand-orange selection:text-white">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Navbar />
         <Sidebar />
-        {children}
+        <main id="main-content" tabIndex={-1}>{children}</main>
         <LucideIcons />
       </body>
     </html>

@@ -150,12 +150,13 @@ export default function BlogPage() {
           <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
+              aria-label="Email address for the newsletter"
               placeholder="Enter your email"
               className="flex-1 bg-white/10 border border-white/20 rounded-full px-5 py-3 text-sm text-white placeholder-white/50 outline-none focus:border-brand-orange transition-colors"
             />
             <button
               type="submit"
-              className="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all shadow-lg whitespace-nowrap"
+              className="bg-brand-orange hover:bg-orange-800 text-white font-semibold px-6 py-3 rounded-full text-sm transition-all shadow-lg whitespace-nowrap"
             >
               Subscribe
             </button>

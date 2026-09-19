@@ -14,10 +14,11 @@ export default function HomePage() {
   return (
     <HomeScripts>
       {/* HERO SECTION */}
-      <header className="relative overflow-hidden min-h-screen flex flex-col justify-between p-6 md:p-12 bg-slate-900 text-white shadow-2xl hero-section">
+      <div className="hero-stage">
+      <header className="relative overflow-hidden min-h-svh flex flex-col justify-between p-6 md:p-12 bg-slate-900 text-white shadow-2xl hero-section">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <TravelImage priority sizes="100vw"
+          <TravelImage priority mobileAspectRatio={0.65} sizes="100vw"
             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
             alt="Scenic Mountain Landscape"
             className="w-full h-full object-cover object-center hero-bg scale-105 opacity-60"
@@ -27,7 +28,7 @@ export default function HomePage() {
 
         {/* Brand Big Text */}
         <div className="relative z-10 flex-1 flex items-start justify-center pt-52 md:pt-0">
-          <span className="text-[5.25rem] sm:text-8xl md:text-9xl lg:text-[11rem] font-extrabold tracking-tight text-center leading-none bg-gradient-to-t from-white/0 via-white/10 to-white/50 bg-clip-text text-transparent">
+          <span aria-hidden="true" className="text-[5.25rem] sm:text-8xl md:text-9xl lg:text-[11rem] font-extrabold tracking-tight text-center leading-none bg-gradient-to-t from-white/0 via-white/10 to-white/50 bg-clip-text text-transparent">
             Wanderly
           </span>
         </div>
@@ -48,16 +49,18 @@ export default function HomePage() {
               <i data-lucide="search" className="w-4 h-4 text-white/70 mr-2" />
               <input
                 type="text"
+                aria-label="Search destinations, tours, or cities"
                 placeholder="Search destination, tour, or city..."
                 className="bg-transparent border-none outline-none text-white placeholder-white/70 text-xs md:text-sm w-full"
               />
             </div>
-            <button className="bg-brand-orange hover:bg-orange-600 text-white font-medium px-4 py-2 rounded-full text-xs transition-all whitespace-nowrap shadow-md">
+            <button className="bg-brand-orange hover:bg-orange-800 text-white font-medium px-4 py-2 rounded-full text-xs transition-all whitespace-nowrap shadow-md">
               Search
             </button>
           </div>
         </div>
       </header>
+      </div>
 
       {/* OUR STORY SECTION */}
       <section id="ourStory" className="max-w-7xl mx-auto px-6 md:px-12 py-24 my-6">
@@ -106,10 +109,10 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 pb-4 lg:grid lg:grid-cols-12 lg:gap-6 lg:overflow-visible lg:pb-0">
+        <div tabIndex={0} role="region" aria-label="Featured destinations" className="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 pb-4 lg:grid lg:grid-cols-12 lg:gap-6 lg:overflow-visible lg:pb-0">
           {/* Large Card Left */}
           <div className="min-w-[85%] snap-start lg:min-w-0 lg:col-span-7 relative rounded-3xl overflow-hidden min-h-[420px] md:min-h-[500px] group cursor-pointer shadow-lg gs-card">
-            <TravelImage sizes="(min-width: 1280px) 680px, (min-width: 1024px) 58vw, 85vw"
+            <TravelImage sizes="(min-width: 1280px) 680px, (min-width: 1024px) 55vw, calc(85vw - 41px)"
               src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1000&auto=format&fit=crop"
               alt="Santorini Island Escape"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
@@ -138,7 +141,7 @@ export default function HomePage() {
           <div className="contents lg:col-span-5 lg:flex lg:flex-col lg:gap-6">
             {/* Top Card */}
             <div className="min-w-[85%] snap-start lg:min-w-0 relative rounded-3xl overflow-hidden flex-1 min-h-[420px] md:min-h-[500px] lg:min-h-[240px] group cursor-pointer shadow-lg gs-card">
-              <TravelImage sizes="(min-width: 1280px) 680px, (min-width: 1024px) 58vw, 85vw"
+              <TravelImage sizes="(min-width: 1280px) 480px, (min-width: 1024px) 40vw, calc(85vw - 41px)"
                 src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800&auto=format&fit=crop"
                 alt="Swiss Alps Adventure"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
@@ -167,7 +170,7 @@ export default function HomePage() {
 
             {/* Bottom Card */}
             <div className="min-w-[85%] snap-start lg:min-w-0 relative rounded-3xl overflow-hidden flex-1 min-h-[420px] md:min-h-[500px] lg:min-h-[240px] group cursor-pointer shadow-lg gs-card">
-              <TravelImage sizes="(min-width: 1280px) 680px, (min-width: 1024px) 58vw, 85vw"
+              <TravelImage sizes="(min-width: 1280px) 480px, (min-width: 1024px) 40vw, calc(85vw - 41px)"
                 src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800&auto=format&fit=crop"
                 alt="Bali Tropical Getaway"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
@@ -204,8 +207,9 @@ export default function HomePage() {
             <div className="flex items-center justify-between gap-4">
               <h2 className="text-3xl md:text-4xl font-extrabold text-brand-dark leading-tight">Popular Tour Packages</h2>
               <a
-                href="#"
-                className="shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-orange text-white hover:bg-orange-600 transition-all shadow-lg hover:shadow-orange-500/30 group"
+                href="/destinations"
+                aria-label="Explore all tour packages"
+                className="shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-brand-orange text-white hover:bg-orange-800 transition-all shadow-lg hover:shadow-orange-500/30 group"
               >
                 <i data-lucide="arrow-up-right" className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
@@ -222,9 +226,9 @@ export default function HomePage() {
               {/* Panel 1 (active by default) */}
               <div
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[3] min-w-0 min-h-0"
-                data-panel=""
+                data-panel="" role="button" tabIndex={0} aria-pressed={true}
               >
-                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
+                <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 384px, (min-width: 1024px) 32vw, (min-width: 768px) 48vw, calc(100vw - 48px)"
                   src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop"
                   alt="Paris City Tour"
                   className="absolute inset-0 w-full h-full object-cover"
@@ -234,7 +238,7 @@ export default function HomePage() {
                   <div className="panel-content transition-opacity duration-300">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Paris City Tour</h4>
+                        <h3 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Paris City Tour</h3>
                         <p className="text-xs text-white/80 whitespace-nowrap">
                           <i data-lucide="map-pin" className="w-3.5 h-3.5 inline mr-1 text-brand-orange" /> Paris, France
                         </p>
@@ -250,19 +254,19 @@ export default function HomePage() {
               {/* Panel 2 */}
               <div
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[1] min-w-0 min-h-0"
-                data-panel=""
+                data-panel="" role="button" tabIndex={0} aria-pressed={false}
               >
-                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
+                <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 384px, (min-width: 1024px) 32vw, (min-width: 768px) 48vw, calc(100vw - 48px)"
                   src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop"
                   alt="Maui Island Hopping"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <div className="panel-content transition-opacity duration-300">
+                  <div className="panel-content transition-opacity duration-300 opacity-0">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Maui Island Hopping</h4>
+                        <h3 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Maui Island Hopping</h3>
                         <p className="text-xs text-white/80 whitespace-nowrap">
                           <i data-lucide="map-pin" className="w-3.5 h-3.5 inline mr-1 text-brand-orange" /> Maui, Hawaii
                         </p>
@@ -278,19 +282,19 @@ export default function HomePage() {
               {/* Panel 3 */}
               <div
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[1] min-w-0 min-h-0"
-                data-panel=""
+                data-panel="" role="button" tabIndex={0} aria-pressed={false}
               >
-                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
+                <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 384px, (min-width: 1024px) 32vw, (min-width: 768px) 48vw, calc(100vw - 48px)"
                   src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=1000&auto=format&fit=crop"
                   alt="Norway Fjords Expedition"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <div className="panel-content transition-opacity duration-300">
+                  <div className="panel-content transition-opacity duration-300 opacity-0">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Norway Fjords</h4>
+                        <h3 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Norway Fjords</h3>
                         <p className="text-xs text-white/80 whitespace-nowrap">
                           <i data-lucide="map-pin" className="w-3.5 h-3.5 inline mr-1 text-brand-orange" /> Bergen, Norway
                         </p>
@@ -306,19 +310,19 @@ export default function HomePage() {
               {/* Panel 4 */}
               <div
                 className="expand-panel relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out flex-[1] min-w-0 min-h-0"
-                data-panel=""
+                data-panel="" role="button" tabIndex={0} aria-pressed={false}
               >
-                <TravelImage sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
+                <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 384px, (min-width: 1024px) 32vw, (min-width: 768px) 48vw, calc(100vw - 48px)"
                   src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1000&auto=format&fit=crop"
                   alt="Lake Como Discovery"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <div className="panel-content transition-opacity duration-300">
+                  <div className="panel-content transition-opacity duration-300 opacity-0">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h4 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Lake Como Discovery</h4>
+                        <h3 className="text-xl md:text-2xl font-bold mb-1 whitespace-nowrap">Lake Como Discovery</h3>
                         <p className="text-xs text-white/80 whitespace-nowrap">
                           <i data-lucide="map-pin" className="w-3.5 h-3.5 inline mr-1 text-brand-orange" /> Como, Italy
                         </p>
@@ -348,7 +352,7 @@ export default function HomePage() {
             Book your next adventure in just a tap—expert local guides, effortless planning, and guaranteed best pricing.
           </p>
 
-          <button className="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30 mb-16">
+          <button className="bg-brand-orange hover:bg-orange-800 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30 mb-16">
             Get Started
           </button>
 
@@ -373,14 +377,14 @@ export default function HomePage() {
           {/* Interactive Mini Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-16 text-left items-stretch">
             <div className="rounded-2xl overflow-hidden shadow-md h-48 md:h-auto">
-              <TravelImage
+              <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 379px, (min-width: 768px) calc((100vw - 144px) / 3), calc((100vw - 64px) / 2)"
                 src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop"
                 className="w-full h-full object-cover"
                 alt=""
               />
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md h-48 md:h-auto">
-              <TravelImage
+              <TravelImage aspectRatio={1.5} sizes="(min-width: 1280px) 379px, (min-width: 768px) calc((100vw - 144px) / 3), calc((100vw - 64px) / 2)"
                 src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop"
                 className="w-full h-full object-cover"
                 alt=""
@@ -393,7 +397,8 @@ export default function HomePage() {
               <div className="flex items-center justify-between mt-8 pt-6 border-t border-white/10">
                 <span className="text-sm text-white/70">hello@wanderly.com</span>
                 <a
-                  href="#"
+                  href="mailto:hello@wanderly.com"
+                  aria-label="Email Wanderly"
                   className="w-10 h-10 rounded-full bg-white text-slate-900 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
                 >
                   <i data-lucide="arrow-up-right" className="w-5 h-5" />
@@ -410,14 +415,14 @@ export default function HomePage() {
         <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 mb-20 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8 items-center gs-fade">
           <div className="md:col-span-5">
             <span className="text-xs font-bold uppercase text-brand-gray tracking-wider">Testimonial</span>
-            <h3 className="text-2xl font-bold text-brand-dark mt-2 mb-4">
+            <h2 className="text-2xl font-bold text-brand-dark mt-2 mb-4">
               Here's what people have to say about working together. Real moments, real feedback.
-            </h3>
+            </h2>
             <div className="flex space-x-2 mt-6">
-              <button className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
+              <button aria-label="Previous testimonial" className="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center hover:bg-slate-100">
                 <i data-lucide="chevron-left" className="w-4 h-4" />
               </button>
-              <button className="w-9 h-9 rounded-full bg-brand-orange text-white flex items-center justify-center">
+              <button aria-label="Next testimonial" className="w-9 h-9 rounded-full bg-brand-orange text-white flex items-center justify-center">
                 <i data-lucide="chevron-right" className="w-4 h-4" />
               </button>
             </div>
@@ -435,7 +440,7 @@ export default function HomePage() {
                 alt=""
               />
               <div>
-                <h5 className="font-bold text-sm text-brand-dark">Sarah Ahmed</h5>
+                <p className="font-bold text-sm text-brand-dark">Sarah Ahmed</p>
                 <p className="text-xs text-brand-gray">Travel Blogger • 5.0 ★★★★★</p>
               </div>
             </div>

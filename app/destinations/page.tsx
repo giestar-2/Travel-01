@@ -128,7 +128,7 @@ export default function DestinationsPage() {
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-lg group-hover:text-brand-orange transition-colors">{destination.title}</h3>
+                  <h2 className="font-bold text-lg group-hover:text-brand-orange transition-colors">{destination.title}</h2>
                   <span className="flex items-center text-sm text-brand-gray">
                     <i data-lucide="star" className="w-4 h-4 mr-1 text-yellow-400 fill-yellow-400" />
                     {destination.rating}

@@ -1,31 +1,14 @@
 "use client";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ReactNode } from "react";
 
-import { useIsomorphicLayoutEffect } from "@/lib/use-isomorphic-layout-effect";
+import { useEffect } from "react";
+import { revealOnScroll } from "@/lib/reveal-on-scroll";
 
-/**
- * destinations.html inline script: card fade-ins + visual filter toggle.
- * It wraps the page markup so its cleanup runs before React removes that markup.
- */
+
 export default function DestinationsScripts({ children }: { children: ReactNode }) {
-  useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Fade-in cards
-      gsap.utils.toArray<HTMLElement>(".gs-card").forEach((elem) => {
-        gsap.from(elem, {
-          scrollTrigger: { trigger: elem, start: "top 90%", toggleActions: "play none none none" },
-          opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: "power2.out",
-        });
-      });
-    });
+  useEffect(() => {
+    const stopReveals = revealOnScroll();
 
     // Filter buttons (visual toggle)
     const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("#destinationFilters button"));
@@ -44,7 +27,7 @@ export default function DestinationsScripts({ children }: { children: ReactNode 
 
     return () => {
       bindings.forEach(({ button, handler }) => button.removeEventListener("click", handler));
-      ctx.revert();
+      stopReveals();
     };
   }, []);
 

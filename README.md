@@ -1,98 +1,79 @@
-# Wanderly — Travel Website (Next.js)
+# Wanderly
 
-Website agen perjalanan dengan brand **Wanderly**. Sebelumnya berupa static site (HTML + Tailwind CDN),
-sekarang sudah jadi project **Next.js** dengan tampilan, markup, animasi, dan perilaku yang sama.
-
-## Stack
-
-- **Next.js (App Router) + TypeScript** — tiap halaman lama jadi satu route, semuanya di-prerender statis.
-- **Tailwind CSS** (via npm, bukan CDN) — konfigurasi tema `brand.*` dan font-nya identik dengan CDN sebelumnya.
-- **GSAP + ScrollTrigger** — dipakai untuk semua animasi (`npm install gsap`, versi 3.x seperti sebelumnya).
-- **Lucide** — mengubah `<i data-lucide="...">` menjadi SVG lewat `createIcons()` seperti pada versi HTML.
-- **JavaScript manipulasi DOM** — semua logika lama (navbar scroll, hero, accordion, expand panel, filter,
-  lightbox, progress bar, form) tetap ditulis sebagai script DOM/GSAP di dalam `useEffect`, bukan diubah
-  menjadi state React. Hanya markup-nya yang sekarang dirender React.
-
-## Struktur Proyek
-
-```
-.
-├── app/
-│   ├── layout.tsx                 # <html>/<head> (font), Navbar, Sidebar, LucideIcons
-│   ├── globals.css                # @tailwind + CSS custom (marquee, article-body, progressBar, dll)
-│   ├── page.tsx                   # /                     (dari index.html)
-│   ├── destinations/page.tsx      # /destinations         (dari destinations.html)
-│   ├── destination-detail/page.tsx# /destination-detail   (dari destination-detail.html)
-│   ├── gallery/page.tsx           # /gallery              (dari gallery.html)
-│   ├── blog/page.tsx              # /blog                 (dari blog.html)
-│   ├── blog-detail/page.tsx       # /blog-detail          (dari blog-detail.html)
-│   └── contact/page.tsx           # /contact              (dari contact.html)
-├── components/
-│   ├── Navbar.tsx                 # navbar (transparan di beranda + berubah solid saat scroll)
-│   ├── Sidebar.tsx                # sidebar mobile (CTA-nya beda per halaman, sesuai aslinya)
-│   ├── Footer.tsx                 # 4 varian footer sesuai halaman asalnya
-│   ├── SharedSections.tsx         # "Why Wanderly" + FAQ (dulu shared-sections.js)
-│   ├── LucideIcons.tsx            # pengganti panggilan lucide.createIcons()
-│   ├── nav-links.ts               # daftar menu + penentuan menu aktif
-│   └── scripts/                   # script DOM per halaman (dulu <script> di dalam HTML)
-│       ├── HomeScripts.tsx        # hero timeline, pin hero, crossfade judul, expand panel
-│       ├── DestinationsScripts.tsx
-│       ├── GalleryScripts.tsx     # filter galeri + lightbox
-│       ├── BlogScripts.tsx
-│       ├── BlogDetailScripts.tsx  # reading progress bar
-│       └── ContactScripts.tsx     # validasi + status form
-├── lib/
-│   ├── icons.ts                   # kumpulan ikon yang diregister ke createIcons()
-│   ├── brand-icons.ts             # ikon brand (Instagram/Twitter/Facebook/YouTube)
-│   └── use-isomorphic-layout-effect.ts
-├── scripts/check-icons.mjs        # cek semua data-lucide terdaftar (npm run check:icons)
-├── tailwind.config.ts / postcss.config.mjs / next.config.mjs / tsconfig.json
-└── README.md
-```
-
-### Catatan penting soal `components/scripts/*`
-
-Setiap script halaman **membungkus** markup halaman (`<HomeScripts>…markup…</HomeScripts>`). Ini bukan
-gaya penulisan biasa, tapi wajib: React menghapus halaman lama saat pindah route (client-side navigation),
-dan cleanup layout effect sebuah komponen berjalan **sebelum** React menghapus node milik komponen itu.
-Kalau script-nya jadi *sibling* markup, cleanup-nya jalan terlambat — `pin-spacer` milik ScrollTrigger
-belum dilepas, dan React akan error `NotFoundError: Failed to execute 'removeChild'`. Jadi jangan pindahkan
-`<XxxScripts />` keluar dari pembungkusnya.
-
-### Ikon brand
-
-`lucide` 1.x sudah tidak menyediakan ikon brand, tapi desain memakai Instagram/Twitter/Facebook/YouTube.
-Ikon-ikon itu disalin ke `lib/brand-icons.ts` (dari lucide 0.577.0) dan ikut didaftarkan di `lib/icons.ts`,
-sehingga `<i data-lucide="instagram">` tetap berfungsi. Ikon lain yang tidak dipakai tidak ikut dibundel.
+Website agen perjalanan dengan Next.js App Router, TypeScript, Tailwind CSS, dan Lucide.
+Semua halaman diprerender statis.
 
 ## Menjalankan
 
-```bash
-npm install
-npm run dev        # http://localhost:3000
+```sh
+npm ci
+npm run dev
 ```
 
-Build produksi:
+Untuk produksi:
 
-```bash
+```sh
 npm run build
 npm start
 ```
 
-Cek tambahan:
+## Performa
 
-```bash
-npm run typecheck     # tsc --noEmit
-npm run check:icons   # pastikan semua data-lucide ada di lib/icons.ts
+- Font Plus Jakarta Sans WOFF2 disajikan lokal melalui `next/font/local`.
+  Lisensinya ada di `app/fonts/OFL.txt`.
+- CSS kecil disertakan di HTML produksi dengan `experimental.inlineCss`.
+  Ini menghilangkan request stylesheet awal, tetapi menambah ukuran HTML setiap halaman.
+- `TravelImage` merender `<picture>` AVIF dengan fallback WebP, ukuran responsif,
+  dimensi intrinsik, lazy loading, dan prioritas untuk gambar utama.
+- Foto di `public/images/travel` sudah dikompres. Nama file mengandung hash konten
+  dan memakai cache immutable. `lib/travel-images.json` memetakan URL sumber ke aset lokal.
+- Animasi reveal memakai IntersectionObserver dan Web Animations API. Konten awal
+  tetap langsung terlihat. Efek pin desktop memakai CSS sticky dengan ruang yang
+  sudah disediakan; tidak ada spacer yang disisipkan saat hydration.
+- FAQ memakai `details`/`summary` dan dapat digunakan tanpa JavaScript.
+- Navbar hanya diperbarui saat melewati ambang scroll; progress artikel dibatasi
+  satu pembaruan per animation frame. Preferensi reduced motion dihormati.
+
+## Mengganti foto
+
+URL Unsplash di markup tetap menjadi identitas sumber. Setelah menambahkan atau
+mengubah sumber foto, jalankan:
+
+```sh
+npm run optimize:images
 ```
 
-## Deploy ke Vercel
+Script ini memerlukan internet dan membuat varian lokal memakai Sharp. Commit
+aset hasilnya bersama manifest. Build/deploy biasa tidak perlu mengunduh foto atau font.
+Varian crop tambahan diatur dalam `scripts/optimize-travel-assets.mjs`.
 
-1. Push project ini ke GitHub.
-2. Buka [vercel.com](https://vercel.com), login dengan akun GitHub.
-3. Klik **Add New…** → **Project**, lalu pilih repository-nya.
-4. **Framework Preset** — pilih **Next.js** (terdeteksi otomatis).
-5. **Build Command** / **Output Directory** — biarkan default (`next build`).
-6. Klik **Deploy**.
+## Verifikasi
 
-Setelah itu setiap push ke `main` akan otomatis di-deploy ulang.
+```sh
+npm run typecheck
+npm run check:icons
+npm run build
+npm run start -- --port 3100
+```
+
+Dengan server produksi tetap berjalan, jalankan dari terminal lain:
+
+```sh
+npm run audit:site
+npm run audit:performance
+```
+
+Audit memerlukan Google Chrome terpasang. `AUDIT_URL` dapat mengganti alamat default
+`http://127.0.0.1:3100`. Audit situs memeriksa 7 halaman pada desktop/ponsel dengan
+axe, overflow, FAQ keyboard, panel keyboard, menu mobile, dan navigasi client.
+Audit Lighthouse memakai emulasi mobile; hasil JSON/HTML tanpa screenshot disimpan
+di `artifacts/` (tidak masuk Git). Hasil lokal bukan jaminan skor deployment.
+
+## Struktur
+
+- `app/`: halaman, layout, stylesheet, dan font lokal.
+- `components/`: navigasi, footer, foto responsif, serta bagian bersama.
+- `components/scripts/`: interaksi halaman dan cleanup listener saat pindah route.
+- `lib/reveal-on-scroll.ts`: animasi ringan untuk konten yang baru masuk viewport.
+- `lib/icons.ts` / `lib/brand-icons.ts`: ikon yang dipakai website.
+- `scripts/`: kompresi foto dan pemeriksaan produksi.

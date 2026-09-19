@@ -1,32 +1,14 @@
 "use client";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ReactNode } from "react";
 
-import { useIsomorphicLayoutEffect } from "@/lib/use-isomorphic-layout-effect";
+import { useEffect } from "react";
+import { revealOnScroll } from "@/lib/reveal-on-scroll";
 
-/**
- * gallery.html inline script: fade-ins, gallery filtering and the lightbox.
- * It wraps the page markup so its cleanup runs before React removes that markup.
- */
+
 export default function GalleryScripts({ children }: { children: ReactNode }) {
-  useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      // Fade-ins
-      gsap.utils.toArray<HTMLElement>(".gs-fade").forEach((elem) => {
-        if (elem.closest("#shared-sections")) return;
-        gsap.from(elem, {
-          scrollTrigger: { trigger: elem, start: "top 90%" },
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          ease: "power2.out",
-        });
-      });
-    });
+  useEffect(() => {
+    const stopReveals = revealOnScroll();
 
     // Gallery filter
     const chips = Array.from(document.querySelectorAll<HTMLButtonElement>(".filter-chip"));
@@ -83,7 +65,7 @@ export default function GalleryScripts({ children }: { children: ReactNode }) {
       lightboxClose?.removeEventListener("click", closeLightbox);
       lightbox?.removeEventListener("click", handleBackdropClick);
       document.body.style.overflow = "";
-      ctx.revert();
+      stopReveals();
     };
   }, []);
 

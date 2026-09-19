@@ -1,31 +1,14 @@
 "use client";
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ReactNode } from "react";
 
-import { useIsomorphicLayoutEffect } from "@/lib/use-isomorphic-layout-effect";
+import { useEffect } from "react";
+import { revealOnScroll } from "@/lib/reveal-on-scroll";
 
-/**
- * blog-detail.html inline script: reading progress bar + fade-ins.
- * It wraps the page markup so its cleanup runs before React removes that markup.
- */
+
 export default function BlogDetailScripts({ children }: { children: ReactNode }) {
-  useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>(".gs-fade").forEach((elem) => {
-        if (elem.closest("#shared-sections")) return;
-        gsap.from(elem, {
-          scrollTrigger: { trigger: elem, start: "top 90%" },
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          ease: "power2.out",
-        });
-      });
-    });
+  useEffect(() => {
+    const stopReveals = revealOnScroll();
 
     // Reading progress bar
     const progressBar = document.getElementById("progressBar");
@@ -52,7 +35,7 @@ export default function BlogDetailScripts({ children }: { children: ReactNode })
       window.removeEventListener("resize", handleScroll);
       resizeObserver.disconnect();
       window.cancelAnimationFrame(frame);
-      ctx.revert();
+      stopReveals();
     };
   }, []);
 

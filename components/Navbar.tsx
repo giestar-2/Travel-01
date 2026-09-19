@@ -9,7 +9,7 @@ import { useIsomorphicLayoutEffect } from "@/lib/use-isomorphic-layout-effect";
 
 const solidBase =
   "fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md text-brand-dark transition-all duration-300";
-const transparentBase = "fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300";
+const transparentBase = "nav-transparent fixed top-0 left-0 right-0 z-50 text-white transition-all duration-300";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -39,6 +39,7 @@ export default function Navbar() {
       const scrolled = window.scrollY > 40;
       if (scrolled === previousScrolled) return;
       previousScrolled = scrolled;
+      navbar.classList.toggle("nav-transparent", !scrolled);
       if (scrolled) {
         navbar.classList.remove("text-white");
         navbar.classList.add("bg-white/95", "backdrop-blur-md", "shadow-md", "text-brand-dark");
@@ -60,7 +61,7 @@ export default function Navbar() {
   }, [transparent, pathname]);
 
   return (
-    <nav ref={navbarRef} id="navbar" className={transparent ? transparentBase : `${solidBase} ${shadow}`}>
+    <nav ref={navbarRef} id="navbar" aria-label="Primary navigation" className={transparent ? transparentBase : `${solidBase} ${shadow}`}>
       <div
         ref={navInnerRef}
         id="navInner"
@@ -91,7 +92,7 @@ export default function Navbar() {
               key={link.key}
               href={link.href}
               className={
-                link.key === active ? "text-brand-orange transition-colors" : "hover:text-brand-orange transition-colors"
+                link.key === active ? "nav-active transition-colors" : "hover:text-brand-orange transition-colors"
               }
             >
               {link.label}
@@ -99,7 +100,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <button id="menuToggle" className="md:hidden flex items-center justify-center" aria-label="Open menu">
+        <button id="menuToggle" className="md:hidden flex items-center justify-center" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
           <i data-lucide="menu" className="w-7 h-7" />
         </button>
       </div>

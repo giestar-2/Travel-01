@@ -29,7 +29,7 @@ function HomeFooter() {
           Your next great adventure is waiting. Explore a world of handpicked tours and unforgettable destinations
           across the globe.
         </p>
-        <button className="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30">
+        <button className="bg-brand-orange hover:bg-orange-800 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30">
           Plan Your Trip
         </button>
       </div>
@@ -68,7 +68,7 @@ function DestinationsFooter() {
           </p>
         </div>
         <div>
-          <h4 className="font-bold mb-4 text-sm">Explore</h4>
+          <h2 className="font-bold mb-4 text-sm">Explore</h2>
           <ul className="space-y-2 text-sm text-white/60">
             <li>
               <Link href="/destinations" className="hover:text-brand-orange">
@@ -88,7 +88,7 @@ function DestinationsFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-4 text-sm">Company</h4>
+          <h2 className="font-bold mb-4 text-sm">Company</h2>
           <ul className="space-y-2 text-sm text-white/60">
             <li>
               <Link href="/contact" className="hover:text-brand-orange">
@@ -108,7 +108,7 @@ function DestinationsFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-4 text-sm">Get in touch</h4>
+          <h2 className="font-bold mb-4 text-sm">Get in touch</h2>
           <p className="text-sm text-white/60">hello@wanderly.com</p>
           <p className="text-sm text-white/60 mt-1">45 Greenlawn Avenue, New York</p>
         </div>
@@ -130,7 +130,7 @@ function DestinationDetailFooter() {
           <p className="text-white/60 text-sm mt-3">Explore the world, one journey at a time.</p>
         </div>
         <div>
-          <h4 className="font-bold mb-3 text-sm">Explore</h4>
+          <h2 className="font-bold mb-3 text-sm">Explore</h2>
           <ul className="space-y-2 text-sm text-white/60">
             <li>
               <Link href="/destinations" className="hover:text-white">
@@ -150,7 +150,7 @@ function DestinationDetailFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-3 text-sm">Company</h4>
+          <h2 className="font-bold mb-3 text-sm">Company</h2>
           <ul className="space-y-2 text-sm text-white/60">
             <li>
               <Link href="/contact" className="hover:text-white">
@@ -170,7 +170,7 @@ function DestinationDetailFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-3 text-sm">Contact</h4>
+          <h2 className="font-bold mb-3 text-sm">Contact</h2>
           <ul className="space-y-2 text-sm text-white/60">
             <li>hello@wanderly.com</li>
             <li>+1 (555) 123-4567</li>
@@ -196,7 +196,7 @@ function SiteFooter() {
           </p>
         </div>
         <div>
-          <h4 className="font-bold mb-4 text-sm uppercase tracking-wider text-white/80">Explore</h4>
+          <h2 className="font-bold mb-4 text-sm uppercase tracking-wider text-white/80">Explore</h2>
           <ul className="space-y-2 text-sm text-white/60">
             {exploreLinks.map((link) => (
               <li key={link.href}>
@@ -208,7 +208,7 @@ function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-4 text-sm uppercase tracking-wider text-white/80">Contact</h4>
+          <h2 className="font-bold mb-4 text-sm uppercase tracking-wider text-white/80">Contact</h2>
           <ul className="space-y-2 text-sm text-white/60">
             <li>hello@wanderly.com</li>
             <li>+1 (212) 555-0192</li>

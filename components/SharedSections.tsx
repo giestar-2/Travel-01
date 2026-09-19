@@ -1,13 +1,4 @@
-"use client";
-
 import TravelImage from "@/components/TravelImage";
-
-
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
-
-import { useIsomorphicLayoutEffect } from "@/lib/use-isomorphic-layout-effect";
 
 const features = [
   {
@@ -61,68 +52,9 @@ const faqs = [
   },
 ];
 
-/**
- * The "Why Wanderly" + FAQ blocks that the original pages injected through
- * shared-sections.js, including the accordion behaviour and the fade-in of these
- * sections (which the page scripts deliberately skip, exactly like before).
- */
 export default function SharedSections() {
-  const rootRef = useRef<HTMLDivElement | null>(null);
-
-  useIsomorphicLayoutEffect(() => {
-    const mount = rootRef.current;
-    if (!mount) return;
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const ctx = gsap.context(() => {
-      mount.querySelectorAll<HTMLElement>(".gs-fade").forEach((elem) => {
-        gsap.from(elem, {
-          scrollTrigger: { trigger: elem, start: "top 90%" },
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          ease: "power2.out",
-        });
-      });
-    }, mount);
-
-    // Accordion behavior (scoped to this FAQ block)
-    const accordionItems = Array.from(mount.querySelectorAll<HTMLElement>(".accordion-item"));
-    const handlers: Array<{ item: HTMLElement; handler: () => void }> = [];
-
-    accordionItems.forEach((item) => {
-      const handler = () => {
-        const content = item.querySelector<HTMLElement>(".accordion-content");
-        const icon = item.querySelector<HTMLElement>(".accordion-icon");
-        if (!content || !icon) return;
-
-        const isHidden = content.classList.contains("hidden");
-
-        accordionItems.forEach((other) => {
-          other.querySelector(".accordion-content")?.classList.add("hidden");
-          other.querySelector(".accordion-icon")?.classList.remove("rotate-180");
-        });
-
-        if (isHidden) {
-          content.classList.remove("hidden");
-          icon.classList.add("rotate-180");
-          ctx.add(() => gsap.fromTo(content, { opacity: 0, y: -5 }, { opacity: 1, y: 0, duration: 0.3 }));
-        }
-      };
-
-      item.addEventListener("click", handler);
-      handlers.push({ item, handler });
-    });
-
-    return () => {
-      handlers.forEach(({ item, handler }) => item.removeEventListener("click", handler));
-      ctx.revert();
-    };
-  }, []);
-
   return (
-    <div id="shared-sections" ref={rootRef}>
+    <div id="shared-sections">
       {/* WHY WANDERLY (FEATURES / SERVICES) */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 py-16">
         <div className="text-center max-w-2xl mx-auto mb-12 gs-fade">
@@ -158,16 +90,16 @@ export default function SharedSections() {
               We&apos;re Here to Help.
             </h2>
             {faqs.map((faq) => (
-              <div key={faq.q} className="border-b border-slate-200 pb-4 accordion-item cursor-pointer">
-                <div className="flex justify-between items-center py-3 font-bold text-brand-dark gap-4">
+              <details key={faq.q} name="travel-faq" className="group border-b border-slate-200 pb-4 accordion-item">
+                <summary className="flex cursor-pointer list-none justify-between items-center py-3 font-bold text-brand-dark gap-4">
                   <span>{faq.q}</span>
                   <i
                     data-lucide="chevron-down"
-                    className="w-5 h-5 shrink-0 text-brand-gray transition-transform duration-300 accordion-icon"
+                    className="w-5 h-5 shrink-0 text-brand-gray transition-transform duration-300 group-open:rotate-180 accordion-icon"
                   />
-                </div>
-                <p className="text-sm text-brand-gray mt-2 hidden accordion-content leading-relaxed">{faq.a}</p>
-              </div>
+                </summary>
+                <p className="text-sm text-brand-gray mt-2 accordion-content leading-relaxed">{faq.a}</p>
+              </details>
             ))}
           </div>
           <div className="lg:col-span-5 gs-fade">

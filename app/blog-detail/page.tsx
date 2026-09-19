@@ -71,19 +71,19 @@ export default function BlogDetailPage() {
             <p className="text-xs text-brand-gray">July 12, 2026 • 8 min read</p>
           </div>
           <div className="flex gap-2">
-            <a
+            <a aria-label="Share on Twitter"
               href="#"
               className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-100 transition-colors"
             >
               <i data-lucide="twitter" className="w-4 h-4" />
             </a>
-            <a
+            <a aria-label="Share on Facebook"
               href="#"
               className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-100 transition-colors"
             >
               <i data-lucide="facebook" className="w-4 h-4" />
             </a>
-            <a
+            <a aria-label="Article link"
               href="#"
               className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-100 transition-colors"
             >
