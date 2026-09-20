@@ -2,161 +2,152 @@ import type { Metadata } from "next";
 
 import Footer from "@/components/Footer";
 import SharedSections from "@/components/SharedSections";
+import TravelImage from "@/components/TravelImage";
 import ContactScripts from "@/components/scripts/ContactScripts";
 
 export const metadata: Metadata = {
   title: "Contact Us - Wanderly",
+  description: "Tell us about your next trip. Our travel specialists will help you plan the details.",
 };
 
-const socials = ["instagram", "twitter", "facebook", "youtube"];
-
 const inputClass =
-  "w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none transition-all text-sm";
+  "w-full rounded-lg border border-slate-200 bg-white px-4 py-3.5 text-sm text-brand-dark placeholder:text-slate-400 transition-colors focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/15";
 
 export default function ContactPage() {
   return (
     <ContactScripts>
-      {/* PAGE HEADER */}
-      <header className="pt-32 md:pt-40 pb-12 max-w-7xl mx-auto px-6 md:px-12 text-center">
-        <span className="text-xs font-bold tracking-widest uppercase text-brand-orange mb-3 block gs-fade">
-          Get in Touch
-        </span>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-brand-dark tracking-tight mb-4 gs-fade">
-          Let's Plan Your Next Adventure
-        </h1>
-        <p className="text-brand-gray max-w-2xl mx-auto gs-fade">
-          Have a question about a destination or want a custom itinerary? Our travel experts are here to help you every
-          step of the way.
-        </p>
+      <header className="relative max-w-7xl mx-auto px-6 md:px-12 pt-32 md:pt-40 pb-12 md:pb-16">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+          <div className="lg:col-span-8 gs-fade">
+            <p className="text-xs font-bold tracking-[0.2em] uppercase text-brand-orange mb-5">Your trip starts here</p>
+            <h1 className="max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-dark tracking-[-0.055em] leading-[1.02] text-balance">
+              Tell us where you&apos;d love to go.
+            </h1>
+          </div>
+          <p className="lg:col-span-4 max-w-md text-base md:text-lg leading-relaxed text-brand-gray pb-1 gs-fade">
+            Share a little about your plans. A Wanderly travel specialist will help shape the details around you.
+          </p>
+        </div>
       </header>
 
-      {/* CONTACT GRID */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Info Cards */}
-          <div className="lg:col-span-4 space-y-4 gs-fade">
-            <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex items-start gap-4">
-              <div className="w-11 h-11 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
-                <i data-lucide="mail" className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="font-bold text-brand-dark mb-1">Email Us</h2>
-                <p className="text-sm text-brand-gray">hello@wanderly.com</p>
-                <p className="text-sm text-brand-gray">support@wanderly.com</p>
-              </div>
-            </div>
-            <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex items-start gap-4">
-              <div className="w-11 h-11 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
-                <i data-lucide="phone" className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="font-bold text-brand-dark mb-1">Call Us</h2>
-                <p className="text-sm text-brand-gray">+1 (212) 555-0192</p>
-                <p className="text-sm text-brand-gray">Mon–Fri, 9am–6pm EST</p>
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pb-20 md:pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <aside className="lg:col-span-4 lg:sticky lg:top-28 gs-fade">
+            <div className="relative overflow-hidden rounded-[1.75rem] bg-slate-900 aspect-[4/3]">
+              <TravelImage
+                src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?q=80&w=800&auto=format&fit=crop"
+                sizes="(min-width: 1280px) 380px, (min-width: 1024px) 33vw, 100vw"
+                alt="A traveler taking in a mountain view"
+                className="absolute inset-0 h-full w-full object-cover opacity-80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 text-white">
+                <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold tracking-wide text-white/85">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" /> HERE WHEN YOU NEED US
+                </span>
+                <p className="max-w-xs text-xl md:text-2xl font-semibold leading-snug">Good journeys start with a conversation.</p>
               </div>
             </div>
-            <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex items-start gap-4">
-              <div className="w-11 h-11 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
-                <i data-lucide="map-pin" className="w-5 h-5" />
-              </div>
-              <div>
-                <h2 className="font-bold text-brand-dark mb-1">Visit Us</h2>
-                <p className="text-sm text-brand-gray">
-                  45 Greenlawn Avenue,
-                  <br />
-                  New York, NY 10003, USA
-                </p>
-              </div>
-            </div>
-            <div className="bg-slate-900 text-white rounded-2xl p-6 shadow-lg">
-              <h2 className="font-bold mb-3">Follow Our Journey</h2>
-              <div className="flex gap-3">
-                {socials.map((social) => (
-                  <a
-                    key={social} aria-label={social}
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-orange flex items-center justify-center transition-colors"
-                  >
-                    <i data-lucide={social} className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          {/* Form */}
+            <div className="mt-7 divide-y divide-slate-200 border-y border-slate-200">
+              <a href="mailto:hello@wanderly.com" className="group flex items-center justify-between gap-4 py-5 focus-visible:outline-offset-4">
+                <span>
+                  <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-brand-gray">Write to us</span>
+                  <span className="font-semibold text-brand-dark transition-colors group-hover:text-brand-orange">hello@wanderly.com</span>
+                </span>
+                <i data-lucide="arrow-up-right" aria-hidden="true" className="h-5 w-5 shrink-0 text-brand-orange" />
+              </a>
+              <a href="tel:+12125550192" className="group flex items-center justify-between gap-4 py-5 focus-visible:outline-offset-4">
+                <span>
+                  <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-brand-gray">Give us a call</span>
+                  <span className="font-semibold text-brand-dark transition-colors group-hover:text-brand-orange">+1 (212) 555-0192</span>
+                  <span className="mt-1 block text-xs text-brand-gray">Mon–Fri, 9am–6pm EST</span>
+                </span>
+                <i data-lucide="arrow-up-right" aria-hidden="true" className="h-5 w-5 shrink-0 text-brand-orange" />
+              </a>
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-brand-gray">Prefer email? We usually reply within one business day.</p>
+          </aside>
+
           <div className="lg:col-span-8 gs-fade">
-            <div className="bg-white border border-slate-100 rounded-3xl p-8 md:p-10 shadow-sm">
-              <h2 className="text-2xl font-bold text-brand-dark mb-6">Send Us a Message</h2>
-              <form id="contactForm" className="space-y-5" noValidate>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="rounded-[1.75rem] bg-white p-6 shadow-[0_20px_70px_-35px_rgba(15,23,42,0.24)] ring-1 ring-slate-200/70 sm:p-8 md:p-10 lg:p-12">
+              <div className="mb-9 flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 pb-7">
+                <div>
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-brand-orange">Let&apos;s make a plan</p>
+                  <h2 className="text-2xl font-bold tracking-tight text-brand-dark md:text-3xl">Tell us about your trip</h2>
+                </div>
+                <p className="text-xs text-brand-gray">Fields marked <span className="text-brand-orange">*</span> are required</p>
+              </div>
+
+              <form id="contactForm" className="space-y-6" noValidate>
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="contact-name" className="block text-sm font-medium text-brand-dark mb-2">Full Name</label>
-                    <input type="text" id="contact-name" name="name" required placeholder="Jane Doe" className={inputClass} />
+                    <label htmlFor="contact-name" className="mb-2 block text-sm font-semibold text-brand-dark">Your name <span className="text-brand-orange">*</span></label>
+                    <input type="text" id="contact-name" name="name" required autoComplete="name" placeholder="Alex Morgan" className={inputClass} />
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-brand-dark mb-2">Email Address</label>
-                    <input type="email" id="contact-email" name="email" required placeholder="jane@example.com" className={inputClass} />
+                    <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-brand-dark">Email address <span className="text-brand-orange">*</span></label>
+                    <input type="email" id="contact-email" name="email" required autoComplete="email" placeholder="alex@example.com" className={inputClass} />
                   </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="contact-destination" className="block text-sm font-medium text-brand-dark mb-2">Destination of Interest</label>
-                    <select id="contact-destination" name="destination" className={`${inputClass} bg-white`}>
-                      <option value="">Select a destination</option>
+                    <label htmlFor="contact-destination" className="mb-2 block text-sm font-semibold text-brand-dark">Where would you like to go?</label>
+                    <select id="contact-destination" name="destination" defaultValue="" className={`${inputClass} appearance-none`}>
+                      <option value="">Choose a destination</option>
                       <option>Santorini, Greece</option>
                       <option>Swiss Alps, Switzerland</option>
                       <option>Bali, Indonesia</option>
                       <option>Paris, France</option>
-                      <option>Other / Not sure yet</option>
+                      <option>Somewhere else</option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="contact-date" className="block text-sm font-medium text-brand-dark mb-2">Travel Date</label>
+                    <label htmlFor="contact-date" className="mb-2 block text-sm font-semibold text-brand-dark">When are you thinking of going?</label>
                     <input type="date" id="contact-date" name="date" className={inputClass} />
                   </div>
                 </div>
+
                 <div>
-                  <label htmlFor="contact-message" className="block text-sm font-medium text-brand-dark mb-2">Message</label>
-                  <textarea
-                    id="contact-message" name="message"
-                    rows={5}
-                    required
-                    placeholder="Tell us about your dream trip..."
-                    className={`${inputClass} resize-none`}
-                  ></textarea>
+                  <label htmlFor="contact-message" className="mb-2 block text-sm font-semibold text-brand-dark">Anything else we should know? <span className="text-brand-orange">*</span></label>
+                  <textarea id="contact-message" name="message" rows={5} required placeholder="Tell us what you have in mind: the places, pace, or moments you’re hoping for." className={`${inputClass} min-h-36 resize-y leading-relaxed`} />
                 </div>
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto bg-brand-orange hover:bg-orange-800 text-white font-semibold px-8 py-3.5 rounded-full text-sm transition-all shadow-lg hover:shadow-orange-500/30 inline-flex items-center justify-center gap-2"
-                  >
-                    <span>Send Message</span>
-                    <i data-lucide="send" className="w-4 h-4" />
+
+                <div className="flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center">
+                  <button type="submit" className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-orange px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-orange-800 focus-visible:outline-offset-4 active:translate-y-0 sm:w-auto">
+                    Send your enquiry
+                    <i data-lucide="arrow-right" aria-hidden="true" className="h-4 w-4" />
                   </button>
-                  <p id="formStatus" className="text-sm font-medium text-green-600 hidden">
-                    Thanks! We'll get back to you within 24 hours.
+                  <p id="formStatus" role="status" aria-live="polite" className="hidden text-sm font-medium text-emerald-700">
+                    Thanks for getting in touch. We&apos;ll reply within one business day.
                   </p>
+                  <p className="text-xs leading-relaxed text-brand-gray sm:ml-auto sm:max-w-56">No commitment. Just thoughtful help planning your trip.</p>
                 </div>
               </form>
             </div>
           </div>
         </div>
 
-        {/* Map placeholder */}
-        <div className="mt-8 rounded-3xl overflow-hidden shadow-sm border border-slate-100 h-72 md:h-96 gs-fade">
+        <div className="mt-12 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-100 md:mt-16">
+          <div className="flex flex-col gap-2 px-6 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-8">
+            <div>
+              <p className="mb-1 text-xs font-bold uppercase tracking-[0.16em] text-brand-orange">A little closer</p>
+              <h2 className="text-xl font-bold text-brand-dark">Find us in New York</h2>
+            </div>
+            <p className="text-sm text-brand-gray">45 Greenlawn Avenue · New York, NY 10003</p>
+          </div>
           <iframe
-            title="Wanderly location map"
-            className="w-full h-full"
+            title="Map showing Wanderly&apos;s New York office"
+            className="h-64 w-full border-0 md:h-80"
             loading="lazy"
+            referrerPolicy="no-referrer"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-74.01%2C40.72%2C-73.98%2C40.74&layer=mapnik"
-          ></iframe>
+          />
         </div>
       </section>
 
-      {/* SHARED SECTIONS (Features + FAQ) */}
       <SharedSections />
-
       <Footer variant="site" />
     </ContactScripts>
   );
